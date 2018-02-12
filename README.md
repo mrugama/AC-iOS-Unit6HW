@@ -39,7 +39,8 @@ App uses Firebase's Auth appropriately | 4 Points
 Users can see all categories for flashcards and create additional categories | 4 Points
 Users can create new flashcards  | 4 Points
 Users can quiz themselves on their flashcards | 4 Points
-Flashcard information is hosted on Firebase's Database | 8 Points
+Flashcard information is hosted on Firebase's Database | 4 Points
+App includes tests | 4 Points
 Extra Credit: Allow the user to authenticate through other services | 1 Point
 Extra Credit: Build in tracking for questions | 1 Point
 Extra Credit: Add animations that we think look good | 2 Point
