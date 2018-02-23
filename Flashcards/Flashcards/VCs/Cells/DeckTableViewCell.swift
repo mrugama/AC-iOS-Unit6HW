@@ -13,8 +13,8 @@ class DeckTableViewCell: UITableViewCell {
     
     var addDeck = AddDeckView()
     
-    func configureCell(card: Int) {
-        addDeck.cardNumLabel.text = "Card: \(card + 1)"
+    func configureCell(num: Int, card: Card) {
+        addDeck.cardNumLabel.text = "Card: \(num + 1)"
         addDeck.backCard.isHidden = true
         
         configureConstraints()

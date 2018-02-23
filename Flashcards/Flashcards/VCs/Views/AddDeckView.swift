@@ -58,8 +58,6 @@ class AddDeckView: UIView {
         scrollView.addSubview(frontCard)
         scrollView.addSubview(backCard)
         
-        //let spacing: CGFloat = 8.0
-        
         cardNumLabel.snp.makeConstraints { (make) in
             make.top.equalTo(snp.top).offset(16)
             make.left.equalTo(snp.left).offset(16)
@@ -68,13 +66,15 @@ class AddDeckView: UIView {
         deleteButton.snp.makeConstraints { (make) in
             make.top.equalTo(snp.top).offset(16)
             make.right.equalTo(snp.right).offset(-16)
+            make.width.height.equalTo(32)
         }
         
         scrollView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(snp.bottom)
+            //make.bottom.equalTo(snp.bottom)
             make.left.equalTo(snp.left)
             make.width.equalTo(snp.width)
-            make.height.equalTo(snp.height).multipliedBy(0.75)
+            make.top.equalTo(deleteButton.snp.bottom).offset(16)
+            make.bottom.equalTo(snp.bottom).offset(-16)
         }
         
         frontCard.snp.makeConstraints { (make) in

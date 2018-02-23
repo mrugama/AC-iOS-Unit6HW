@@ -1,15 +1,15 @@
 //
-//  Category.swift
+//  Deck.swift
 //  Flashcards
 //
-//  Created by C4Q on 2/19/18.
+//  Created by C4Q on 2/23/18.
 //  Copyright © 2018 C4Q. All rights reserved.
 //
 
 import Foundation
 import Firebase
 
-struct Category {
+struct Deck {
     let ref: DatabaseReference?
     let refId: String?
     var name: String?

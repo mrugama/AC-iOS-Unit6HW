@@ -10,11 +10,20 @@
 		22FCCE91FB9EA76FDD4E4463 /* Pods_FlashcardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C45B35CCFD1AB2EBAE663346 /* Pods_FlashcardsTests.framework */; };
 		5D96FC09D2B36632D76C1724 /* Pods_FlashcardsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D288F3792816CA72043713B /* Pods_FlashcardsUITests.framework */; };
 		66203784CB1BBD09381DD552 /* Pods_Flashcards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4590B8DAA3095E1F2A52406 /* Pods_Flashcards.framework */; };
+		814A0D9E2040A0CD004BC1BB /* CategoryVC+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814A0D9D2040A0CD004BC1BB /* CategoryVC+CollectionView.swift */; };
+		814A0DA02040BB76004BC1BB /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814A0D9F2040BB76004BC1BB /* Deck.swift */; };
+		814A0DA22040BFF6004BC1BB /* Category+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814A0DA12040BFF6004BC1BB /* Category+TableView.swift */; };
 		814B47402037BE4300034439 /* DeckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B473F2037BE4300034439 /* DeckTableViewCell.swift */; };
 		814B47422037C1EA00034439 /* DeckAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B47412037C1EA00034439 /* DeckAddCollectionViewCell.swift */; };
 		814B4748203B4FFD00034439 /* AddDeckVC+ImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B4747203B4FFD00034439 /* AddDeckVC+ImagePickerDelegate.swift */; };
 		814B474A203BB71600034439 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B4749203BB71600034439 /* Card.swift */; };
 		814B474C203BB72100034439 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B474B203BB72100034439 /* Category.swift */; };
+		814B474E203CAF7300034439 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B474D203CAF7300034439 /* CategoryVC.swift */; };
+		814B4750203CAFC700034439 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B474F203CAFC700034439 /* CategoryView.swift */; };
+		814B4752203CC16000034439 /* AddDeckVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B4751203CC16000034439 /* AddDeckVC+TableView.swift */; };
+		814B4754203DC7AD00034439 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 814B4753203DC7AD00034439 /* GoogleService-Info.plist */; };
+		814B4790203F6F9800034439 /* CatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B478F203F6F9800034439 /* CatCollectionViewCell.swift */; };
+		814B4792203FAC9200034439 /* NewCatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B4791203FAC9200034439 /* NewCatCollectionViewCell.swift */; };
 		81691B6C20324C2C0089AEC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81691B6B20324C2C0089AEC5 /* AppDelegate.swift */; };
 		81691B6E20324C2C0089AEC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81691B6D20324C2C0089AEC5 /* ViewController.swift */; };
 		81691B7120324C2C0089AEC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81691B6F20324C2C0089AEC5 /* Main.storyboard */; };
@@ -53,11 +62,20 @@
 		47A39196623F33DDBE234ACA /* Pods-Flashcards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flashcards.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flashcards/Pods-Flashcards.release.xcconfig"; sourceTree = "<group>"; };
 		7529E6CE9A1AC2950552FE26 /* Pods-FlashcardsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashcardsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlashcardsTests/Pods-FlashcardsTests.release.xcconfig"; sourceTree = "<group>"; };
 		7871BF1507401D0D26D0CCD3 /* Pods-FlashcardsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashcardsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlashcardsUITests/Pods-FlashcardsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		814A0D9D2040A0CD004BC1BB /* CategoryVC+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryVC+CollectionView.swift"; sourceTree = "<group>"; };
+		814A0D9F2040BB76004BC1BB /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		814A0DA12040BFF6004BC1BB /* Category+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+TableView.swift"; sourceTree = "<group>"; };
 		814B473F2037BE4300034439 /* DeckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTableViewCell.swift; sourceTree = "<group>"; };
 		814B47412037C1EA00034439 /* DeckAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		814B4747203B4FFD00034439 /* AddDeckVC+ImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddDeckVC+ImagePickerDelegate.swift"; sourceTree = "<group>"; };
 		814B4749203BB71600034439 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		814B474B203BB72100034439 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		814B474D203CAF7300034439 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
+		814B474F203CAFC700034439 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		814B4751203CC16000034439 /* AddDeckVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddDeckVC+TableView.swift"; sourceTree = "<group>"; };
+		814B4753203DC7AD00034439 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		814B478F203F6F9800034439 /* CatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewCell.swift; sourceTree = "<group>"; };
+		814B4791203FAC9200034439 /* NewCatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCatCollectionViewCell.swift; sourceTree = "<group>"; };
 		81691B6820324C2C0089AEC5 /* Flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81691B6B20324C2C0089AEC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81691B6D20324C2C0089AEC5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +171,7 @@
 				81691B9D20324E1C0089AEC5 /* Models */,
 				81691B9C20324E100089AEC5 /* Supporting Files */,
 				81691B7A20324C2C0089AEC5 /* Info.plist */,
+				814B4753203DC7AD00034439 /* GoogleService-Info.plist */,
 				81691B7220324C2C0089AEC5 /* Flashcards.xcdatamodeld */,
 			);
 			path = Flashcards;
@@ -191,8 +210,9 @@
 			isa = PBXGroup;
 			children = (
 				81691BA7203254230089AEC5 /* SettingApp.swift */,
-				814B4749203BB71600034439 /* Card.swift */,
 				814B474B203BB72100034439 /* Category.swift */,
+				814A0D9F2040BB76004BC1BB /* Deck.swift */,
+				814B4749203BB71600034439 /* Card.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,7 +229,11 @@
 			isa = PBXGroup;
 			children = (
 				81691BA320324F000089AEC5 /* UserLogInVC.swift */,
+				814B474D203CAF7300034439 /* CategoryVC.swift */,
+				814A0D9D2040A0CD004BC1BB /* CategoryVC+CollectionView.swift */,
+				814A0DA12040BFF6004BC1BB /* Category+TableView.swift */,
 				81691C21203642EE0089AEC5 /* AddDeckVC.swift */,
+				814B4751203CC16000034439 /* AddDeckVC+TableView.swift */,
 				814B4747203B4FFD00034439 /* AddDeckVC+ImagePickerDelegate.swift */,
 				81691B6D20324C2C0089AEC5 /* ViewController.swift */,
 				81691BA120324E4B0089AEC5 /* Cells */,
@@ -222,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				81691BA520324F970089AEC5 /* UserLogInView.swift */,
+				814B474F203CAFC700034439 /* CategoryView.swift */,
 				81691C1D2036110F0089AEC5 /* AddDeckView.swift */,
 				81691C1F203611800089AEC5 /* NewCardView.swift */,
 			);
@@ -233,6 +258,8 @@
 			children = (
 				814B473F2037BE4300034439 /* DeckTableViewCell.swift */,
 				814B47412037C1EA00034439 /* DeckAddCollectionViewCell.swift */,
+				814B478F203F6F9800034439 /* CatCollectionViewCell.swift */,
+				814B4791203FAC9200034439 /* NewCatCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -375,6 +402,7 @@
 			files = (
 				81691B7920324C2C0089AEC5 /* LaunchScreen.storyboard in Resources */,
 				81691B7620324C2C0089AEC5 /* Assets.xcassets in Resources */,
+				814B4754203DC7AD00034439 /* GoogleService-Info.plist in Resources */,
 				81691B7120324C2C0089AEC5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,18 +590,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				814A0DA02040BB76004BC1BB /* Deck.swift in Sources */,
+				814B474E203CAF7300034439 /* CategoryVC.swift in Sources */,
 				81691BA8203254230089AEC5 /* SettingApp.swift in Sources */,
 				814B47402037BE4300034439 /* DeckTableViewCell.swift in Sources */,
+				814A0D9E2040A0CD004BC1BB /* CategoryVC+CollectionView.swift in Sources */,
 				81691B6E20324C2C0089AEC5 /* ViewController.swift in Sources */,
 				81691C1E2036110F0089AEC5 /* AddDeckView.swift in Sources */,
+				814B4752203CC16000034439 /* AddDeckVC+TableView.swift in Sources */,
 				814B474A203BB71600034439 /* Card.swift in Sources */,
+				814B4750203CAFC700034439 /* CategoryView.swift in Sources */,
 				81691BA420324F000089AEC5 /* UserLogInVC.swift in Sources */,
+				814B4790203F6F9800034439 /* CatCollectionViewCell.swift in Sources */,
 				81691C20203611800089AEC5 /* NewCardView.swift in Sources */,
 				814B47422037C1EA00034439 /* DeckAddCollectionViewCell.swift in Sources */,
 				81691B7420324C2C0089AEC5 /* Flashcards.xcdatamodeld in Sources */,
 				81691BA620324F970089AEC5 /* UserLogInView.swift in Sources */,
+				814B4792203FAC9200034439 /* NewCatCollectionViewCell.swift in Sources */,
 				81691C22203642EE0089AEC5 /* AddDeckVC.swift in Sources */,
 				814B4748203B4FFD00034439 /* AddDeckVC+ImagePickerDelegate.swift in Sources */,
+				814A0DA22040BFF6004BC1BB /* Category+TableView.swift in Sources */,
 				81691B6C20324C2C0089AEC5 /* AppDelegate.swift in Sources */,
 				814B474C203BB72100034439 /* Category.swift in Sources */,
 			);

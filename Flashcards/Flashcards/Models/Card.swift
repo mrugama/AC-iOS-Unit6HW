@@ -12,24 +12,28 @@ import Firebase
 struct Card {
     let ref: DatabaseReference?
     let refId: String?
-    var id: Int?
+    let refCatId: String?
+    let refDeckId: String?
     var name: String?
     var question: String?
     var answer: String?
-    var imageURL: String?
+    var frontImageURL: String?
+    var backImageURL: String?
     var image: UIImage?
     var saved: Bool?
     
-    init(ref: DatabaseReference, refId: String,
-         id: Int, name: String, question: String,
-         answer: String, imageURL: String, saved: Bool) {
+    init(ref: DatabaseReference?, refId: String?,
+         refCatId: String?, refDeckId: String?, name: String?, question: String?,
+         answer: String?, frontImageURL: String?, backImageURL: String?, saved: Bool?) {
         self.ref = ref
         self.refId = refId
-        self.id = id
+        self.refCatId = refCatId
+        self.refDeckId = refDeckId
         self.name = name
         self.question = question
         self.answer = answer
-        self.imageURL = imageURL
+        self.frontImageURL = frontImageURL
+        self.backImageURL = backImageURL
         self.image = nil
         self.saved = saved
     }
@@ -38,18 +42,22 @@ struct Card {
         let value = snapShot.value as? [String: Any]
         self.ref = snapShot.ref
         self.refId = value?["refId"] as? String ?? ""
-        self.id = value?["id"] as? Int ?? 0
+        self.refCatId = value?["refcatId"] as? String ?? ""
+        self.refDeckId = value?["refDeckId"] as? String ?? ""
         self.name = value?["name"] as? String ?? ""
         self.question = value?["question"] as? String ?? ""
         self.answer = value?["answer"] as? String ?? ""
-        self.imageURL = value?["imageURL"] as? String ?? ""
+        self.frontImageURL = value?["frontImageURL"] as? String ?? ""
+        self.backImageURL = value?["backImageURL"] as? String ?? ""
         self.image = nil
         self.saved = true
     }
     
     func toAnyObj() -> [String: Any] {
-        return ["refId": refId ?? "", "id": id ?? 0,
-                "name": name ?? "", "question": question ?? "",
-                "answer": answer ?? "", "imageURL": imageURL ?? ""]
+        return ["refId": refId ?? "", "refCatId": refCatId ?? "",
+                "refDeckId": refDeckId ?? "","name": name ?? "",
+                "question": question ?? "","answer": answer ?? "",
+                "frontImageURL": frontImageURL ?? "",
+                "backImageURL": backImageURL ?? ""]
     }
 }

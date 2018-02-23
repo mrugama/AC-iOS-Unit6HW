@@ -15,6 +15,13 @@ class UserLogInVC: UIViewController {
         
     }
     
-
-
 }
+
+/*
+ {
+ "rules": {
+ ".read": "auth != null",
+ ".write": "auth != null"
+ }
+ }
+ */

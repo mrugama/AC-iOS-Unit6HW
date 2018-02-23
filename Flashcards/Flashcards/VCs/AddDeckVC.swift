@@ -8,8 +8,23 @@
 
 import UIKit
 import SnapKit
+import FirebaseDatabase
 
 class AddDeckVC: UIViewController {
+    
+    var dbRef: DatabaseReference?
+    var newDeckRef: DatabaseReference?
+    
+    var cat: Category? {
+        didSet {
+            print(cat?.name ?? "No value")
+        }
+    }
+    var cards = [Card]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     lazy var newDeckLabel: UILabel = {
         let label = UILabel()
@@ -44,14 +59,12 @@ class AddDeckVC: UIViewController {
     lazy var addCardButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "icoPlus64x64"), for: UIControlState.normal)
-        //button.setTitle("+", for: .normal)
         button.tintColor = UIColor.white
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1
         button.layer.shadowColor = UIColor.lightGray.cgColor
         button.layer.shadowOffset = CGSize(width: 5, height: 10)
         button.layer.cornerRadius = 32
-        //button.backgroundColor = UIColor.init(red: 103/255, green: 179/255, blue: 233/255, alpha: 1)
         button.backgroundColor = UIColor.init(red: 0.9, green: 0.1, blue: 0, alpha: 0.6)
         return button
     }()
@@ -63,6 +76,24 @@ class AddDeckVC: UIViewController {
         tableView.dataSource = self
         addCardButton.setNeedsLayout()
         setupView()
+        addCardButton.addTarget(self, action: #selector(addNewCard), for: .touchUpInside)
+        publishButton.isEnabled = false
+        dbRef = Database.database().reference()
+    }
+    
+    @objc private func addNewCard() {
+        if cards.count == 0 {
+            let newDeckRef = self.dbRef?.child("decks").childByAutoId()
+            newDeckRef?.setValue(["name": "PickUp"])
+            
+            let newCardRef = newDeckRef?.childByAutoId()
+            
+            let newCard = Card(ref: newCardRef, refId: newCardRef?.key, refCatId: newCardRef?.key, refDeckId: "", name: nil, question: nil, answer: nil, frontImageURL: nil, backImageURL: nil, saved: false)
+            cards.append(newCard)
+            addCardButton.isEnabled = false
+        } else  {
+            
+        }
     }
     
     private func setupView() {
@@ -103,7 +134,7 @@ class AddDeckVC: UIViewController {
         }
     }
     
-    @objc private func addImageButtonPressed() {
+    @objc func addImageButtonPressed() {
         let addImageActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let openCamera = UIAlertAction.init(title: "Take a photo", style: .default) { [weak self] (action) in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -132,31 +163,6 @@ class AddDeckVC: UIViewController {
     }
 }
 
-extension AddDeckVC: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.layer.frame.height * 0.55
-    }
-}
-
-extension AddDeckVC: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "DeckCell", for: indexPath) as? DeckTableViewCell {
-            cell.configureCell(card: indexPath.row)
-            cell.addDeck.frontCard.addImageBtn.addTarget(self, action: #selector(addImageButtonPressed), for: UIControlEvents.touchUpInside)
-            cell.addDeck.backCard.addImageBtn.addTarget(self, action: #selector(addImageButtonPressed), for: UIControlEvents.touchUpInside)
-            cell.addDeck.frontCard.delegate = self
-            return cell
-        }
-        
-        return UITableViewCell()
-    }
-}
 
 extension AddDeckVC: NewCardViewDelegate {
     func didButtonPressed() {

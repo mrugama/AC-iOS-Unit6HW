@@ -35,12 +35,6 @@ class NewCardView: UIView {
     lazy var captionTxtView: UITextView = {
         let text = UITextView()
         text.font = UIFont.boldSystemFont(ofSize: 18)
-        text.layer.borderWidth = 1
-        text.layer.borderColor = UIColor.gray.cgColor
-        text.layer.cornerRadius = 5
-        text.layer.shadowColor = UIColor.gray.cgColor
-        text.layer.shadowOffset = CGSize(width: 0, height: -20)
-        text.layer.shadowOpacity = 10
         text.textAlignment = .center
         text.autocorrectionType = UITextAutocorrectionType.no
         return text
@@ -102,14 +96,13 @@ class NewCardView: UIView {
         
         textButton.snp.makeConstraints { (make) in
             make.height.width.equalTo(paddin * 3)
-            make.right.equalTo(addImageBtn.snp.left).offset(-(paddin * 2))
+            make.left.equalTo(snp.left).offset(paddin)
             make.top.equalTo(snp.top).offset(paddin)
         }
         
         frontLabel.snp.makeConstraints { (make) in
-            make.right.equalTo(addImageBtn.snp.left).offset(-paddin)
-            make.left.equalTo(snp.left).offset(paddin)
-            make.top.equalTo(snp.top).offset(paddin)
+            make.centerX.equalTo(snp.centerX)
+            make.top.equalTo(snp.top).offset(paddin * 2)
         }
         
         captionTxtView.snp.makeConstraints { (make) in
