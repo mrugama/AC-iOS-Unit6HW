@@ -9,22 +9,44 @@
 import UIKit
 import CoreData
 import Firebase
+import FirebaseAuthUI
+import FirebaseGoogleAuthUI
+import FirebaseFacebookAuthUI
+import FirebaseTwitterAuthUI
+import FirebasePhoneAuthUI
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        let vc = CategoryVC()
-        let nav = UINavigationController(rootViewController: vc)
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = nav
-        window?.makeKeyAndVisible()
+        if Auth.auth().currentUser == nil {
+            let providers: [FUIAuthProvider] = [
+                FUIGoogleAuth(),
+                //FUIFacebookAuth(),
+                //FUITwitterAuth(),
+                FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
+                ]
+            // You need to adopt a FUIAuthDelegate protocol to receive callback
+            let authUI = FUIAuth.defaultAuthUI()
+            authUI?.providers = providers
+            authUI?.delegate = self
+            let authViewController = authUI?.authViewController()
+            
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = authViewController
+            window?.makeKeyAndVisible()
+        } else {
+            let vc = CategoryVC()
+            let nav = UINavigationController(rootViewController: vc)
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        }
         return true
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -95,6 +117,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        let vc = CategoryVC()
+        let nav = UINavigationController(rootViewController: vc)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
+        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            return true
+        }
+        // other URL handling goes here.
+        return false
+    }
 }
 

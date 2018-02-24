@@ -7,7 +7,8 @@ target 'Flashcards' do
 
   # Pods for Flashcards
     pod 'Firebase/Core'
-    pod 'Firebase/Auth'
+    pod 'FirebaseUI'
+    #pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'Firebase/Storage'
     pod 'SnapKit'
