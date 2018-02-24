@@ -9,15 +9,12 @@
 import UIKit
 
 class CategoryView: UIView {
-
-    lazy var catLabel: UILabel = {
-        let label = UILabel()
-        label.text = "  Categories  "
-        label.font = UIFont.boldSystemFont(ofSize: 28)
-        label.textColor = .white
-        label.backgroundColor = .black
-        label.layer.cornerRadius = 10
-        return label
+    
+    lazy var logoImageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage.init(named: "imgCategories")
+        image.contentMode = .scaleAspectFill
+        return image
     }()
     
     lazy var catCollectionView: UICollectionView = {
@@ -60,19 +57,21 @@ class CategoryView: UIView {
     }
     
     override func layoutSubviews() {
-        catLabel.setNeedsLayout()
+        logoImageView.setNeedsLayout()
     }
     
     private func commonInit() {
-        addSubview(catLabel)
-        catLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(snp.left)
-            make.top.equalTo(snp.top).offset(32)
+        addSubview(logoImageView)
+        logoImageView.snp.makeConstraints { (make) in
+            make.top.equalTo(snp.top)
+            make.width.equalTo(snp.width)
+            make.centerX.equalTo(snp.centerX)
+            make.height.equalTo(128)
         }
         
         addSubview(catCollectionView)
         catCollectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(catLabel.snp.bottom).offset(-2)
+            make.top.equalTo(logoImageView.snp.bottom)
             make.width.equalTo(snp.width)
             make.height.equalTo(snp.height).multipliedBy(0.15)
             make.centerX.equalTo(snp.centerX)

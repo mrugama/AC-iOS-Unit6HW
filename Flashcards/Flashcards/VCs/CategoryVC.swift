@@ -38,9 +38,14 @@ class CategoryVC: UIViewController {
         categoryView.deckTableView.dataSource = self
         categoryView.addDeck.isEnabled = false
         categoryView.addDeck.addTarget(self, action: #selector(createDeck), for: .touchUpInside)
-        view.backgroundColor = UIColor.white
+        navConfig()
         catViewConstraints()
         loadCategories()
+    }
+    
+    private func navConfig() {
+        view.backgroundColor = UIColor.white
+        navigationItem.title = "CATEGORIES"
     }
     
     @objc private func createDeck() {

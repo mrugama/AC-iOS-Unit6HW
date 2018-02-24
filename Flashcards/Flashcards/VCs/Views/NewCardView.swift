@@ -53,6 +53,14 @@ class NewCardView: UIView {
         return image
     }()
     
+    lazy var saveButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Go back", for: .normal)
+        button.setTitleColor(.red, for: .normal)
+        //button.backgroundColor = UIColor.black
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         constraints()
@@ -86,6 +94,7 @@ class NewCardView: UIView {
         addSubview(frontLabel)
         addSubview(captionTxtView)
         addSubview(imageView)
+        addSubview(saveButton)
         let paddin: CGFloat = 12
         
         addImageBtn.snp.makeConstraints { (make) in
@@ -116,6 +125,11 @@ class NewCardView: UIView {
             make.centerX.equalTo(snp.centerX)
             make.centerY.equalTo(snp.centerY)
             make.width.height.equalTo(snp.width).multipliedBy(0.6)
+        }
+        
+        saveButton.snp.makeConstraints { (make) in
+            make.bottom.equalTo(snp.bottom)
+            make.centerX.equalTo(snp.centerX)
         }
     }
 }

@@ -74,21 +74,28 @@ class AddDeckVC: UIViewController {
         view.backgroundColor = .white
         tableView.delegate = self
         tableView.dataSource = self
-        addCardButton.setNeedsLayout()
-        setupView()
+        titleTextField.delegate = self
         addCardButton.addTarget(self, action: #selector(addNewCard), for: .touchUpInside)
+        setupView()
+        setupNavController()
+        addCardButton.setNeedsLayout()
         publishButton.isEnabled = false
+        addCardButton.isHidden = true
         dbRef = Database.database().reference()
+    }
+    
+    private func setupNavController() {
+        navigationItem.title = cat?.name
     }
     
     @objc private func addNewCard() {
         if cards.count == 0 {
-            let newDeckRef = self.dbRef?.child("decks").childByAutoId()
-            newDeckRef?.setValue(["name": "PickUp"])
+            //let newDeckRef = self.dbRef?.child("decks").childByAutoId()
+            //newDeckRef?.setValue(["name": "PickUp"])
             
-            let newCardRef = newDeckRef?.childByAutoId()
+            //let newCardRef = newDeckRef?.childByAutoId()
             
-            let newCard = Card(ref: newCardRef, refId: newCardRef?.key, refCatId: newCardRef?.key, refDeckId: "", name: nil, question: nil, answer: nil, frontImageURL: nil, backImageURL: nil, saved: false)
+            let newCard = Card(ref: nil, refId: nil, refCatId: cat?.refId, refDeckId: nil, name: nil, question: nil, answer: nil, frontImageURL: nil, backImageURL: nil, saved: false)
             cards.append(newCard)
             addCardButton.isEnabled = false
         } else  {
@@ -159,7 +166,6 @@ class AddDeckVC: UIViewController {
         addImageActionSheet.addAction(openGallery)
         addImageActionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil) )
         self.present(addImageActionSheet, animated: true, completion: nil)
-        
     }
 }
 
@@ -190,5 +196,18 @@ extension AddDeckVC: NewCardViewDelegate {
         addImageActionSheet.addAction(openGallery)
         addImageActionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil) )
         self.present(addImageActionSheet, animated: true, completion: nil)
+    }
+}
+
+extension AddDeckVC: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let text = textField.text, text.count > 0 {
+            publishButton.isEnabled = true
+            addCardButton.isHidden = false
+        } else {
+            publishButton.isEnabled = false
+            addCardButton.isHidden = true
+        }
+        return true
     }
 }

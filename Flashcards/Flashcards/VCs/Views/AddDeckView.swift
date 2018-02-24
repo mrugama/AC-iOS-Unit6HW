@@ -49,6 +49,8 @@ class AddDeckView: UIView {
     
     override func layoutSubviews() {
         scrollView.setNeedsLayout()
+        frontCard.setNeedsLayout()
+        backCard.setNeedsLayout()
     }
     
     private func viewConst() {
@@ -70,7 +72,6 @@ class AddDeckView: UIView {
         }
         
         scrollView.snp.makeConstraints { (make) in
-            //make.bottom.equalTo(snp.bottom)
             make.left.equalTo(snp.left)
             make.width.equalTo(snp.width)
             make.top.equalTo(deleteButton.snp.bottom).offset(16)
@@ -93,24 +94,23 @@ class AddDeckView: UIView {
     private func setupView() {
         frontCard.frontLabel.text = "Front"
         frontCard.layer.cornerRadius = 10
-        //frontCard.layer.borderColor = UIColor.init(red: 0.9, green: 0.1, blue: 0, alpha: 0.6).cgColor
         frontCard.layer.borderWidth = 1
         frontCard.layer.shadowColor = UIColor.gray.cgColor
         frontCard.layer.shadowOffset = CGSize(width: -15, height: -15)
         frontCard.layer.shadowOpacity = 10
         frontCard.layer.shadowRadius = 12
         frontCard.backgroundColor = .white
+        frontCard.layer.masksToBounds = true
         
         
-        frontCard.frontLabel.text = "Back"
+        backCard.frontLabel.text = "Back"
         backCard.layer.cornerRadius = 10
-        //backCard.layer.borderColor = UIColor.gray.cgColor
         backCard.layer.borderWidth = 1
         backCard.layer.shadowColor = UIColor.gray.cgColor
         backCard.layer.shadowOffset = CGSize(width: -15, height: -15)
         backCard.layer.shadowOpacity = 10
         frontCard.layer.shadowRadius = 12
         backCard.backgroundColor = .white
+        backCard.layer.masksToBounds = true
     }
-
 }
