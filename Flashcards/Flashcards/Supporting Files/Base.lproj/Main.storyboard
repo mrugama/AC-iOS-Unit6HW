@@ -22,7 +22,7 @@
                                 <rect key="frame" x="164" y="402" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.40392156862745099" green="0.7023388147354126" blue="0.9137539267539978" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.22352941176470587" green="0.46682449181874591" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
                         </subviews>

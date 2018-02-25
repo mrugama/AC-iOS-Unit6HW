@@ -8,9 +8,12 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
+import FirebaseAuthUI
 
 class CategoryVC: UIViewController {
 
+    let authUI = FUIAuth.defaultAuthUI()
     let categoryView = CategoryView()
     let cellSpacing: CGFloat = 10.0
     
@@ -32,12 +35,10 @@ class CategoryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryView.catCollectionView.delegate = self
-        categoryView.catCollectionView.dataSource = self
-        categoryView.deckTableView.delegate = self
-        categoryView.deckTableView.dataSource = self
+        //authUI?.delegate = self
         categoryView.addDeck.isEnabled = false
         categoryView.addDeck.addTarget(self, action: #selector(createDeck), for: .touchUpInside)
+        viewControllerDelegations()
         navConfig()
         catViewConstraints()
         loadCategories()
@@ -45,7 +46,44 @@ class CategoryVC: UIViewController {
     
     private func navConfig() {
         view.backgroundColor = UIColor.white
-        navigationItem.title = "CATEGORIES"
+        navigationController?.navigationBar.barTintColor = UIColor.init(red: 57/255, green: 119/255, blue: 224/255, alpha: 1)
+        navigationController?.navigationBar.tintColor = .white
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
+        titleLabel.textColor = .white
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        
+        titleLabel.text = "Category"
+        navigationItem.titleView = titleLabel
+        navigationController?.navigationBar.isTranslucent = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "SignOut", style: .plain, target: self, action: #selector(userSignOut))
+        
+    }
+    
+    @objc private func userSignOut() {
+        do {
+            try authUI!.signOut()
+            
+        } catch {
+            alertMessage(title: "SignOut", message: "SignOut failed, please try again.")
+        }
+        navigationController?.dismiss(animated: true, completion: nil)
+        if let authViewController = authUI?.authViewController() {
+            self.present(authViewController, animated: true, completion: nil)
+        }
+    }
+    
+    private func alertMessage(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(okButton)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func viewControllerDelegations() {
+        categoryView.catCollectionView.delegate = self
+        categoryView.catCollectionView.dataSource = self
+        categoryView.deckTableView.delegate = self
+        categoryView.deckTableView.dataSource = self
     }
     
     @objc private func createDeck() {
@@ -76,3 +114,4 @@ class CategoryVC: UIViewController {
     }
 
 }
+

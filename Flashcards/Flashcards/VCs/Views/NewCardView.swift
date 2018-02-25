@@ -10,8 +10,9 @@ import UIKit
 import SnapKit
 
 @objc protocol NewCardViewDelegate: class {
-    // select image from selected source
-    @objc optional func didButtonPressed()
+    @objc optional func didAddImageBtnPressed(sender: UIButton)
+    //@objc optional func didSaveCardSucceed()
+    //@objc optional func didSaveCardFailAnswerEmpty()
 }
 
 class NewCardView: UIView {
@@ -57,7 +58,6 @@ class NewCardView: UIView {
         let button = UIButton()
         button.setTitle("Go back", for: .normal)
         button.setTitleColor(.red, for: .normal)
-        //button.backgroundColor = UIColor.black
         return button
     }()
     
@@ -79,13 +79,14 @@ class NewCardView: UIView {
     @objc private func textViewWillAppear() {
         captionTxtView.isHidden = false
         captionTxtView.becomeFirstResponder()
+        saveButton.isHidden = false
     }
     
     @objc private func imageViewWillAppear() {
         addImageBtn.isHidden = false
         captionTxtView.text = ""
         captionTxtView.isHidden = true
-        self.delegate?.didButtonPressed!()
+        self.delegate?.didAddImageBtnPressed!(sender: addImageBtn)
     }
     
     private func constraints() {

@@ -32,7 +32,6 @@
 		81691B7920324C2C0089AEC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81691B7720324C2C0089AEC5 /* LaunchScreen.storyboard */; };
 		81691B8420324C2C0089AEC5 /* FlashcardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81691B8320324C2C0089AEC5 /* FlashcardsTests.swift */; };
 		81691B8F20324C2C0089AEC5 /* FlashcardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81691B8E20324C2C0089AEC5 /* FlashcardsUITests.swift */; };
-		81691BA420324F000089AEC5 /* UserLogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81691BA320324F000089AEC5 /* UserLogInVC.swift */; };
 		81691BA620324F970089AEC5 /* UserLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81691BA520324F970089AEC5 /* UserLogInView.swift */; };
 		81691BA8203254230089AEC5 /* SettingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81691BA7203254230089AEC5 /* SettingApp.swift */; };
 		81691C1E2036110F0089AEC5 /* AddDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81691C1D2036110F0089AEC5 /* AddDeckView.swift */; };
@@ -90,7 +89,6 @@
 		81691B8A20324C2C0089AEC5 /* FlashcardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81691B8E20324C2C0089AEC5 /* FlashcardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsUITests.swift; sourceTree = "<group>"; };
 		81691B9020324C2C0089AEC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81691BA320324F000089AEC5 /* UserLogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogInVC.swift; sourceTree = "<group>"; };
 		81691BA520324F970089AEC5 /* UserLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogInView.swift; sourceTree = "<group>"; };
 		81691BA7203254230089AEC5 /* SettingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingApp.swift; sourceTree = "<group>"; };
 		81691C1D2036110F0089AEC5 /* AddDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeckView.swift; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 		81691B9F20324E2A0089AEC5 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
-				81691BA320324F000089AEC5 /* UserLogInVC.swift */,
 				814B474D203CAF7300034439 /* CategoryVC.swift */,
 				814A0D9D2040A0CD004BC1BB /* CategoryVC+CollectionView.swift */,
 				814A0DA12040BFF6004BC1BB /* Category+TableView.swift */,
@@ -643,7 +640,6 @@
 				814B4752203CC16000034439 /* AddDeckVC+TableView.swift in Sources */,
 				814B474A203BB71600034439 /* Card.swift in Sources */,
 				814B4750203CAFC700034439 /* CategoryView.swift in Sources */,
-				81691BA420324F000089AEC5 /* UserLogInVC.swift in Sources */,
 				814B4790203F6F9800034439 /* CatCollectionViewCell.swift in Sources */,
 				81691C20203611800089AEC5 /* NewCardView.swift in Sources */,
 				814B47422037C1EA00034439 /* DeckAddCollectionViewCell.swift in Sources */,

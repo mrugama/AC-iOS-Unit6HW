@@ -12,7 +12,10 @@ extension AddDeckVC: UIImagePickerControllerDelegate, UINavigationControllerDele
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            
+            if let indexPath = self.indexPath {
+                print(indexPath.row)
+                self.cards[indexPath.row].image = pickedImage
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }

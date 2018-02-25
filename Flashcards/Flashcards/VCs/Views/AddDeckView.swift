@@ -41,6 +41,7 @@ class AddDeckView: UIView {
         super.init(frame: frame)
         viewConst()
         setupView()
+        frontCard.saveButton.isHidden = true
     }
     
     required init?(coder aDecoder: NSCoder) {
