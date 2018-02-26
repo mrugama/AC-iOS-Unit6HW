@@ -25,8 +25,6 @@ extension AddDeckVC: UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "DeckCell", for: indexPath) as? DeckTableViewCell {
             let card = cards[indexPath.row]
             cell.configureCell(num: indexPath.row, card: card)
-            cell.addDeck.backCard.saveButton.addTarget(self, action: #selector(saveCard), for: .touchUpInside)
-            cell.addDeck.frontCard.delegate = self
             cell.delegateCell = self
             return cell
         }

@@ -90,7 +90,7 @@ class AddDeckVC: UIViewController {
     }
     
     @objc private func addNewCard() {
-        let newCard = Card(ref: nil, refId: nil, refCatId: cat?.refId, refDeckId: nil, name: nil, question: nil, answer: nil, frontImageURL: nil, backImageURL: nil, saved: false)
+        let newCard = Card(ref: nil, refId: nil, refDeckId: nil, question: nil, answer: nil, frontImageURL: nil, backImageURL: nil, saved: false)
         cards.append(newCard)
         addCardButton.isHidden = true
     }
@@ -137,7 +137,7 @@ class AddDeckVC: UIViewController {
         addCardButton.isHidden = false
     }
     
-    func openMenuPhotos() {
+    @objc func openMenuPhotos() {
         let addImageActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let openCamera = UIAlertAction.init(title: "Take a photo", style: .default) { [weak self] (action) in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -162,50 +162,5 @@ class AddDeckVC: UIViewController {
         addImageActionSheet.addAction(openGallery)
         addImageActionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil) )
         self.present(addImageActionSheet, animated: true, completion: nil)
-    }
-}
-
-
-extension AddDeckVC: NewCardViewDelegate, NewCardCellDelegate {
-    @objc func didAddImageBtnPressed(sender: UIButton) {
-        indexPath = IndexPath(item: sender.tag, section: 0)
-        openMenuPhotos()
-    }
-    
-    @objc internal func didSaveCardSucceed(_ tableViewCell: DeckTableViewCell) {
-        if let indexPath = self.tableView.indexPath(for: tableViewCell) {
-            var newCard: Card = cards[indexPath.row]
-            newCard.question = tableViewCell.addDeck.frontCard.captionTxtView.text
-            newCard.image = tableViewCell.addDeck.frontCard.imageView.image
-            newCard.answer = tableViewCell.addDeck.backCard.captionTxtView.text
-            print(tableViewCell.addDeck.backCard.captionTxtView.text)
-            cards[indexPath.row] = newCard
-        }
-        addCardButton.isHidden = false
-    }
-    
-//    @objc private func didSaveCardSucceed(indexPath: IndexPath) {
-//        var newCard: Card = cards[indexPath.row]
-//        if let cell = self.tableView.cellForRow(at: indexPath) as? DeckTableViewCell {
-//            newCard.name = cell.addDeck.frontCard.captionTxtView.text
-//            newCard.question = cell.addDeck.frontCard.captionTxtView.text
-//            newCard.image = cell.addDeck.frontCard.imageView.image
-//            newCard.answer = cell.addDeck.backCard.captionTxtView.text
-//            cards[indexPath.row] = newCard
-//        }
-//        addCardButton.isHidden = false
-//    }
-}
-
-extension AddDeckVC: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if let text = textField.text, text.count > 0 {
-            publishButton.isEnabled = true
-            addCardButton.isHidden = false
-        } else {
-            publishButton.isEnabled = false
-            addCardButton.isHidden = true
-        }
-        return true
     }
 }

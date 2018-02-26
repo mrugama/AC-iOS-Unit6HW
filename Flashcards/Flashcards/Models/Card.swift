@@ -12,9 +12,7 @@ import Firebase
 struct Card {
     let ref: DatabaseReference?
     let refId: String?
-    let refCatId: String?
     let refDeckId: String?
-    var name: String?
     var question: String?
     var answer: String?
     var frontImageURL: String?
@@ -23,13 +21,11 @@ struct Card {
     var saved: Bool?
     
     init(ref: DatabaseReference?, refId: String?,
-         refCatId: String?, refDeckId: String?, name: String?, question: String?,
+         refDeckId: String?, question: String?,
          answer: String?, frontImageURL: String?, backImageURL: String?, saved: Bool?) {
         self.ref = ref
         self.refId = refId
-        self.refCatId = refCatId
         self.refDeckId = refDeckId
-        self.name = name
         self.question = question
         self.answer = answer
         self.frontImageURL = frontImageURL
@@ -42,9 +38,7 @@ struct Card {
         let value = snapShot.value as? [String: Any]
         self.ref = snapShot.ref
         self.refId = value?["refId"] as? String ?? ""
-        self.refCatId = value?["refcatId"] as? String ?? ""
         self.refDeckId = value?["refDeckId"] as? String ?? ""
-        self.name = value?["name"] as? String ?? ""
         self.question = value?["question"] as? String ?? ""
         self.answer = value?["answer"] as? String ?? ""
         self.frontImageURL = value?["frontImageURL"] as? String ?? ""
@@ -54,8 +48,8 @@ struct Card {
     }
     
     func toAnyObj() -> [String: Any] {
-        return ["refId": refId ?? "", "refCatId": refCatId ?? "",
-                "refDeckId": refDeckId ?? "","name": name ?? "",
+        return ["refId": refId ?? "",
+                "refDeckId": refDeckId ?? "",
                 "question": question ?? "","answer": answer ?? "",
                 "frontImageURL": frontImageURL ?? "",
                 "backImageURL": backImageURL ?? ""]

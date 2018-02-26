@@ -12,11 +12,13 @@ import Firebase
 struct Deck {
     let ref: DatabaseReference?
     let refId: String?
+    let catId: String?
     var name: String?
     
-    init(ref: DatabaseReference?, name: String?) {
+    init(ref: DatabaseReference?, catId: String?, name: String?) {
         self.ref = ref
         self.refId = ref?.key
+        self.catId = catId
         self.name = name
     }
     
@@ -24,10 +26,13 @@ struct Deck {
         let value = snapShot.value as? [String: Any]
         self.ref = snapShot.ref
         self.refId = snapShot.ref.key
+        self.catId = value?["catId"] as? String ?? ""
         self.name = value?["name"] as? String ?? ""
     }
     
     func toAnyObj() -> [String: Any] {
-        return ["refId": refId ?? "", "name": name ?? ""]
+        return ["refId": refId ?? "",
+                "catId": catId ?? "",
+                "name": name ?? ""]
     }
 }

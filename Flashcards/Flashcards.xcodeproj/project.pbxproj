@@ -15,7 +15,7 @@
 		814A0DA22040BFF6004BC1BB /* Category+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814A0DA12040BFF6004BC1BB /* Category+TableView.swift */; };
 		814B47402037BE4300034439 /* DeckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B473F2037BE4300034439 /* DeckTableViewCell.swift */; };
 		814B47422037C1EA00034439 /* DeckAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B47412037C1EA00034439 /* DeckAddCollectionViewCell.swift */; };
-		814B4748203B4FFD00034439 /* AddDeckVC+ImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B4747203B4FFD00034439 /* AddDeckVC+ImagePickerDelegate.swift */; };
+		814B4748203B4FFD00034439 /* AddDeckVC+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B4747203B4FFD00034439 /* AddDeckVC+Delegates.swift */; };
 		814B474A203BB71600034439 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B4749203BB71600034439 /* Card.swift */; };
 		814B474C203BB72100034439 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B474B203BB72100034439 /* Category.swift */; };
 		814B474E203CAF7300034439 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B474D203CAF7300034439 /* CategoryVC.swift */; };
@@ -66,7 +66,7 @@
 		814A0DA12040BFF6004BC1BB /* Category+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+TableView.swift"; sourceTree = "<group>"; };
 		814B473F2037BE4300034439 /* DeckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTableViewCell.swift; sourceTree = "<group>"; };
 		814B47412037C1EA00034439 /* DeckAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckAddCollectionViewCell.swift; sourceTree = "<group>"; };
-		814B4747203B4FFD00034439 /* AddDeckVC+ImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddDeckVC+ImagePickerDelegate.swift"; sourceTree = "<group>"; };
+		814B4747203B4FFD00034439 /* AddDeckVC+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddDeckVC+Delegates.swift"; sourceTree = "<group>"; };
 		814B4749203BB71600034439 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		814B474B203BB72100034439 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		814B474D203CAF7300034439 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 				814A0DA12040BFF6004BC1BB /* Category+TableView.swift */,
 				81691C21203642EE0089AEC5 /* AddDeckVC.swift */,
 				814B4751203CC16000034439 /* AddDeckVC+TableView.swift */,
-				814B4747203B4FFD00034439 /* AddDeckVC+ImagePickerDelegate.swift */,
+				814B4747203B4FFD00034439 /* AddDeckVC+Delegates.swift */,
 				81691B6D20324C2C0089AEC5 /* ViewController.swift */,
 				81691BA120324E4B0089AEC5 /* Cells */,
 				81691BA020324E380089AEC5 /* Views */,
@@ -647,7 +647,7 @@
 				81691BA620324F970089AEC5 /* UserLogInView.swift in Sources */,
 				814B4792203FAC9200034439 /* NewCatCollectionViewCell.swift in Sources */,
 				81691C22203642EE0089AEC5 /* AddDeckVC.swift in Sources */,
-				814B4748203B4FFD00034439 /* AddDeckVC+ImagePickerDelegate.swift in Sources */,
+				814B4748203B4FFD00034439 /* AddDeckVC+Delegates.swift in Sources */,
 				814A0DA22040BFF6004BC1BB /* Category+TableView.swift in Sources */,
 				81691B6C20324C2C0089AEC5 /* AppDelegate.swift in Sources */,
 				814B474C203BB72100034439 /* Category.swift in Sources */,

@@ -9,15 +9,7 @@
 import UIKit
 import SnapKit
 
-@objc protocol NewCardViewDelegate: class {
-    @objc optional func didAddImageBtnPressed(sender: UIButton)
-    //@objc optional func didSaveCardSucceed()
-    //@objc optional func didSaveCardFailAnswerEmpty()
-}
-
 class NewCardView: UIView {
-    
-    weak var delegate: NewCardViewDelegate?
     
     lazy var frontLabel: UILabel = {
         let label = UILabel()
@@ -29,7 +21,6 @@ class NewCardView: UIView {
     lazy var addImageBtn: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "icoAddImage48x48"), for: .normal)
-        button.addTarget(self, action: #selector(imageViewWillAppear), for: UIControlEvents.touchUpInside)
         return button
     }()
     
@@ -86,7 +77,6 @@ class NewCardView: UIView {
         addImageBtn.isHidden = false
         captionTxtView.text = ""
         captionTxtView.isHidden = true
-        self.delegate?.didAddImageBtnPressed!(sender: addImageBtn)
     }
     
     private func constraints() {
